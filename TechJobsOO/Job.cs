@@ -37,10 +37,10 @@ namespace TechJobsOO
         {
             return $"\nID: {Id}\n" +
                 $"Name: {Name}\n" +
-                $"Employer: {EmployerName}\n" +
-                $"Location: {EmployerLocation}\n" +
-                $"Position Type: {JobType}\n" +
-                $"Core Competency: {JobCoreCompetency}\n";
+                $"Employer: {EmployerName.Id}: {EmployerName}\n" +
+                $"Location: {EmployerLocation.Id}: {EmployerLocation}\n" +
+                $"Position Type: {JobType.Id}: {JobType}\n" +
+                $"Core Competency: {JobCoreCompetency.Id}: {JobCoreCompetency}\n";
         }
 
         // TODO: Add the two necessary constructors.

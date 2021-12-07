@@ -13,17 +13,18 @@ namespace TechJobsOO
 
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            return obj is PositionType positionType &&
+                   Id == positionType.Id;
         }
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return HashCode.Combine(Id);
         }
 
         public override string ToString()
         {
-            return base.ToString();
+            return Value;
         }
 
         // TODO: Add custom Equals(), GetHashCode(), and ToString() methods.

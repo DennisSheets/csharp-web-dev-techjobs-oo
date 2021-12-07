@@ -17,7 +17,7 @@ namespace TechJobsOO
         }
         public JobField(string value) : this()
         {
-            nextId++;
+            Value = value;
         }
 
         public override bool Equals(object obj)
