@@ -14,16 +14,15 @@ namespace TechJobsTests
         public void InstantiateJobs()
         {
             job1 = new Job("Product tester",
-                            new Employer("ACME"),
-                            new Location("Desert"),
-                            new PositionType("Quality control"),
-                            new CoreCompetency("Persistence"));
+                new Employer("ACME"),
+                new Location("Desert"),
+                new PositionType("Quality control"),
+                new CoreCompetency("Persistence"));
             job2 = new Job("Web Developer",
-                            new Employer("LaunchCode"),
-                            new Location("St. Louis"),
-                            new PositionType("Front-end developer"),
-                            new CoreCompetency("JavaScript"));
-
+                new Employer("LaunchCode"),
+                new Location("St. Louis"),
+                new PositionType("Front-end developer"),
+                new CoreCompetency("JavaScript"));
         }
 
         [TestMethod]
@@ -61,7 +60,6 @@ namespace TechJobsTests
                 new PositionType("UX"), 
                 new CoreCompetency("Tasting ability"));
             Assert.AreEqual("Data not available", job3.EmployerName.ToString());
-
         }
 
         [TestMethod]
@@ -75,7 +73,7 @@ namespace TechJobsTests
         [TestMethod]
         public void Test06BlankNameEmployerLocationTypeAndCompetency()
         {
-            job4 = new Job("",
+            Job job4 = new Job("",
                 new Employer(""),
                 new Location(""),
                 new PositionType(""),
