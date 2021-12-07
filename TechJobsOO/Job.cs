@@ -35,12 +35,25 @@ namespace TechJobsOO
 
         public override string ToString()
         {
-            return $"\nID: {Id}\n" +
-                $"Name: {Name}\n" +
-                $"Employer: {EmployerName.Id}: {EmployerName}\n" +
-                $"Location: {EmployerLocation.Id}: {EmployerLocation}\n" +
-                $"Position Type: {JobType.Id}: {JobType}\n" +
-                $"Core Competency: {JobCoreCompetency.Id}: {JobCoreCompetency}\n";
+            if (Id > 0 &&
+                Name == "" &&
+                EmployerName.Value == "" &&
+                EmployerLocation.Value == "" &&
+                JobType.Value == "" &&
+                JobCoreCompetency.Value == "")
+            {
+                return $"OOPS! This job does not seem to exist.";
+            }
+            else 
+            {
+                return $"\nID: {Id}\n" +
+                    $"Name: {Name} \n" +
+                    $"Employer: {EmployerName} \n" +
+                    $"Location: {EmployerLocation} \n" +
+                    $"Position Type: {JobType} \n" +
+                    $"Core Competency: {JobCoreCompetency} \n";
+            }
+
         }
 
         // TODO: Add the two necessary constructors.

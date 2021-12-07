@@ -22,10 +22,7 @@ namespace TechJobsOO
             return HashCode.Combine(Id);
         }
 
-        public override string ToString()
-        {
-            return Value;
-        }
+
 
         // TODO: Add custom Equals(), GetHashCode(), and ToString() methods.
     }

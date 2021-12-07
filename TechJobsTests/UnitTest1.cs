@@ -8,6 +8,8 @@ namespace TechJobsTests
     {
         Job job1;
         Job job2;
+        Job job3;
+        Job job4;
         [TestInitialize]
         public void InstantiateJobs()
         {
@@ -21,16 +23,17 @@ namespace TechJobsTests
                             new Location("St. Louis"),
                             new PositionType("Front-end developer"),
                             new CoreCompetency("JavaScript"));
+
         }
-        
+
         [TestMethod]
-        public void TestA()
+        public void Test01()
         {
             Assert.AreEqual(1,job1.Id);
             Assert.AreEqual(2,job2.Id); 
         }
         [TestMethod]
-        public void TestB()
+        public void Test02()
         {
             Assert.AreEqual(1, job2.Id - job1.Id);
             Assert.AreEqual(3, job1.Id);
@@ -38,7 +41,7 @@ namespace TechJobsTests
             Assert.AreEqual(4, job2.Id);
         }
         [TestMethod]
-        public void TestCConstructorSetsAllValues()
+        public void Test03ConstructorSetsAllValues()
         {
             Assert.AreEqual(5, job1.Id);
             Assert.AreEqual(6, job2.Id);
@@ -50,15 +53,35 @@ namespace TechJobsTests
             Assert.AreEqual("Persistence", job1.JobCoreCompetency.Value);
         }
         [TestMethod]
-        public void TestDConstructorSetsAllValues()
+        public void Test04ChecksForBlankValues()
         {
-            Assert.AreEqual(7, job1.Id);
-            Assert.AreEqual(8, job2.Id);
-            Assert.AreEqual("Product tester", job1.Name);
-            Assert.AreEqual("ACME", job1.EmployerName.Value);
-            Assert.AreEqual("Desert", job1.EmployerLocation.Value);
-            Assert.AreEqual("Quality control", job1.JobType.Value);
-            Assert.AreEqual("Persistence", job1.JobCoreCompetency.Value);
+            Job job3 = new Job("Ice cream tester", 
+                new Employer(""), 
+                new Location("Home"), 
+                new PositionType("UX"), 
+                new CoreCompetency("Tasting ability"));
+            Assert.AreEqual("Data not available", job3.EmployerName.ToString());
+
+        }
+
+        [TestMethod]
+        public void Test05ConstructorSetsAllValues()
+        {
+            char[] chars = job1.ToString().ToCharArray();
+            Assert.IsTrue(chars[0] == '\n');
+            Assert.IsTrue(chars[chars.Length - 1] == '\n');
+        }
+
+        [TestMethod]
+        public void Test06BlankNameEmployerLocationTypeAndCompetency()
+        {
+            job4 = new Job("",
+                new Employer(""),
+                new Location(""),
+                new PositionType(""),
+                new CoreCompetency(""));
+
+            Assert.AreEqual("OOPS! This job does not seem to exist.", job4.ToString());
         }
     }
 }
